@@ -44,7 +44,6 @@ Fullscreen.prototype = {
                 var height = this.canvas.height;
                 var width = this.canvas.width*this.img.height/this.canvas.height;
             }
-           
 
 			this.ctx.drawImage(this.img, (this.img.width - width)/2, (this.img.height - height)/2, width, height, 0, 0, this.canvas.width, this.canvas.height);
     },
