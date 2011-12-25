@@ -1,6 +1,6 @@
 handlers:
 - url: '/'
-  static_files: 'frontpage/index.html'
+  static_files: 'mainsite/index.html'
   upload: '.*'
 - url: '/'
   static_dir: '/'
