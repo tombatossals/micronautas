@@ -2,8 +2,5 @@ handlers:
 - url: '/'
   static_files: 'mainsite/index.html'
   upload: '.*'
-- url: '/demos/fullscreen/'
-  static_files: 'demos/fullscreen/fullscreen.html'
-  upload: '.*'
 - url: '/'
   static_dir: '/'
