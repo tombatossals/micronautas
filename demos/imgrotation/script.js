@@ -21,8 +21,10 @@ var Canvas = function(screen) {
 		c.animate();
 	};
 	this.img.src = img_url;
+    this.fullscreen = false;
 
 	this.screen = screen;
+    var canvas = screen.querySelector("canvas");
     canvas.setAttribute('width', '300');
     canvas.setAttribute('height', '200');
 	this.ctx = canvas.getContext("2d");
@@ -78,12 +80,19 @@ Canvas.prototype = {
     // fullscreen exit event
     onFullScreenExit: function(e) {
         console.log("exit fullscreen");
-        document.querySelector('button').onclick = this.enterFullScreen.bind(this);
+    },
+
+    toggleFullScreen: function() {
+        if (this.fullscreen) {
+            this.exitFullScreen();
+        } else {
+            this.enterFullScreen();
+        }
+        this.fullscreen = !this.fullscreen;
     },
 
     // Note: FF nightly needs about:config full-screen-api.enabled set to true.
     enterFullScreen: function() {
-        console.log("enterFullscreen()");
         this.screen.onwebkitfullscreenchange = this.onFullScreenEnter.bind(this);
         this.screen.onmozfullscreenchange = this.onFullScreenEnter.bind(this);
         if (this.screen.webkitRequestFullScreen) {
@@ -91,21 +100,19 @@ Canvas.prototype = {
         } else {
             this.screen.mozRequestFullScreen();
         }
-        document.querySelector('button').onclick = this.exitFullScreen.bind(this);
     },
 
     exitFullScreen: function() {
-        console.log("exitFullscreen()");
         document.cancelFullScreen();
-        document.querySelector('button').onclick = this.enterFullScreen.bind(this);
     },
 
 };
 
 (function() {
     window.onload = function() {
-	    canvas = new Canvas(document.getElementById("screen"));
-        document.querySelector('button').onclick = canvas.enterFullScreen.bind(canvas);
+        var elem = document.querySelector(document.webkitCancelFullScreen ? "#fs" : "#fs-container");
+	    var canvas = new Canvas(elem);
+        document.querySelector('button').onclick = canvas.toggleFullScreen.bind(canvas);
 
         stats = new Stats();
         document.querySelector("div#stats").appendChild( stats.domElement );

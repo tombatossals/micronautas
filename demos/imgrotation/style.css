@@ -1,21 +1,14 @@
 body {
-    height: 100%;
     margin: 0em;
     background: #888;
 }
 
-div.wrapper {
-    width: 100%;
-}
-
-div#screen {
+div#fs {
     position: relative;
     margin: auto;
-    padding: 1em;
     width: 520px;
     background: white;
     border-radius: 1em;
-    margin-top: 2em;
     overflow: hidden;
 }
 
@@ -27,12 +20,6 @@ div#stats {
     position: absolute;
     top: 1em;
     left: 1em;
-}
-
-div#datgui {
-    position: absolute;
-    top: 1em;
-    right: 1em;
 }
 
 h1 {
@@ -51,14 +38,43 @@ button {
     vertical-align: middle;
     margin: 0;
     float: right;
-    font-size: .5em;
+    margin: 1em;
 }
 
 canvas {
+    background: white;
+    margin: 2em 0em;
     width: 100%;
     margin-bottom: .5em;
 }
 
 div:-webkit-full-screen {  
-  width: 70% !important;  
+  width: 100% !important;  
 }  
+
+:-webkit-full-screen:not(:root) {
+  width: 80% !important;
+  float: none !important;
+}
+
+:-moz-full-screen:not(:root) {
+  width: 80% !important;
+  float: none !important;
+}
+:-moz-full-screen #fs-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+:-moz-full-screen #fs {
+  width: 80%;
+  margin: auto;
+}
+
+#fs-container:-moz-full-screen {
+  display: table;
+  margin: auto;
+  float: none;
+  width: 100%;
+  height: 100%;
+}
