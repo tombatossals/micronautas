@@ -1,0 +1,64 @@
+body {
+    height: 100%;
+    margin: 0em;
+    background: #888;
+}
+
+div.wrapper {
+    width: 100%;
+}
+
+div#screen {
+    position: relative;
+    margin: auto;
+    padding: 1em;
+    width: 520px;
+    background: white;
+    border-radius: 1em;
+    margin-top: 2em;
+    overflow: hidden;
+}
+
+div#datgui > .dg.a {
+    margin-right: 0;
+}
+
+div#stats {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+div#datgui {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+h1 {
+	font-size: 2em;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0 0 .5em 0;
+    float: right;
+    font-size: .8em;
+}
+
+button {
+    vertical-align: middle;
+    margin: 0;
+    float: right;
+    font-size: .5em;
+}
+
+canvas {
+    width: 100%;
+    margin-bottom: .5em;
+}
+
+div:-webkit-full-screen {  
+  width: 70% !important;  
+}  
